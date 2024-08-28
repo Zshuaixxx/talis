@@ -55,4 +55,10 @@ public class DeptController {
     public Result selectDeptById(@RequestParam (value = "id",required = false)Integer id){
         return Result.success(deptService.selectDeptById(id));
     }
+
+    /*根据id更新部门信息*/
+    @PostMapping("/depts/updateDept")
+    public Result updateDept(@RequestBody Dept dept){
+        return Result.success(deptService.updateDept(dept));
+    }
 }

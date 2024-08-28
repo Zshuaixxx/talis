@@ -21,5 +21,9 @@ public interface DeptService {
     /*添加部门*/
     boolean addDept(Dept dept);
 
+    /*根据id查询部门*/
     Dept selectDeptById(Integer id);
+
+    /*根据id更新部门信息*/
+    Integer updateDept(Dept dept);
 }
