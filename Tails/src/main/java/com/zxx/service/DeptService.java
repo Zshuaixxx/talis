@@ -11,9 +11,13 @@ import java.util.List;
 */
 
 public interface DeptService {
+
     /*获取全部部门数据*/
     List<Dept> list();
 
     /*删除指定部门*/
     boolean deleteDeptById(Integer id);
+
+    /*添加部门*/
+    boolean addDept(Dept dept);
 }
