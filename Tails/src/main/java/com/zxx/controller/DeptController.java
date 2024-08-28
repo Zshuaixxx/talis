@@ -49,4 +49,10 @@ public class DeptController {
         }
         return Result.error("添加失败");
     }
+
+    /*根据id查询部门信息*/
+    @GetMapping("/depts/getDept")
+    public Result selectDeptById(@RequestParam (value = "id",required = false)Integer id){
+        return Result.success(deptService.selectDeptById(id));
+    }
 }

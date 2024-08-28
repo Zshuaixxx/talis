@@ -20,4 +20,6 @@ public interface DeptService {
 
     /*添加部门*/
     boolean addDept(Dept dept);
+
+    Dept selectDeptById(Integer id);
 }
