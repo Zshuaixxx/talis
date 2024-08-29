@@ -18,4 +18,6 @@ public interface EmpService {
     PageBean<Emp> getEmps(Integer page, Integer pageSize, String name, Short gender, LocalDate begin,LocalDate end);
 
     Integer deleteEmps(List<Integer> ids);
+
+    void addEmp(Emp emp);
 }

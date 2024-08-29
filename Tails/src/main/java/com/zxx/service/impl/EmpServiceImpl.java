@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -30,5 +31,12 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public Integer deleteEmps(List<Integer> ids) {
         return empMapper.deleteEmps(ids);
+    }
+
+    @Override
+    public void addEmp(Emp emp) {
+        emp.setUpdateTime(LocalDateTime.now());
+        emp.setCreateTime(LocalDateTime.now());
+        empMapper.addEmp(emp);
     }
 }

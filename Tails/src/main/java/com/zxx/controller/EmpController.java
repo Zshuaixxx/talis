@@ -1,5 +1,6 @@
 package com.zxx.controller;
 
+import com.zxx.pojo.Emp;
 import com.zxx.pojo.Result;
 import com.zxx.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,12 @@ public class EmpController {
             return Result.success(ans);
         }
         return Result.error("删除失败");
+    }
+
+    /*新增员工*/
+    @PostMapping("/addEmp")
+    public Result addEmp(@RequestBody Emp emp){
+        empService.addEmp(emp);
+        return Result.success();
     }
 }
