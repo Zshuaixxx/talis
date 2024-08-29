@@ -4,11 +4,10 @@ import com.zxx.pojo.Result;
 import com.zxx.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 /**
@@ -33,5 +32,15 @@ public class EmpController {
                           @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
                           @DateTimeFormat(pattern = "yyyy-MM-dd")LocalDate end){
         return Result.success(empService.getEmps(page,pageSize,name,gender,begin,end));
+    }
+
+    /*删除员工  支持批量删除*/
+    @DeleteMapping("/deleteEmps")
+    public Result deleteEmps(@RequestBody List<Integer> ids){
+        Integer ans=empService.deleteEmps(ids);
+        if(ans>0){
+            return Result.success(ans);
+        }
+        return Result.error("删除失败");
     }
 }

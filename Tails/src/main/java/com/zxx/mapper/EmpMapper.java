@@ -19,4 +19,6 @@ public interface EmpMapper {
 
 
     List<Emp> getEmps(Integer start, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end);
+
+    Integer deleteEmps(List<Integer> ids);
 }

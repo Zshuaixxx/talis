@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author 帅的被人砍
@@ -24,5 +25,10 @@ public class EmpServiceImpl implements EmpService {
         pageBean.setTotal(empMapper.count());
         pageBean.setRows(empMapper.getEmps((page-1)*pageSize,pageSize,name,gender,begin,end));
         return pageBean;
+    }
+
+    @Override
+    public Integer deleteEmps(List<Integer> ids) {
+        return empMapper.deleteEmps(ids);
     }
 }
