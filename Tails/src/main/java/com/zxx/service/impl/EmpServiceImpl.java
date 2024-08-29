@@ -5,8 +5,9 @@ import com.zxx.pojo.Emp;
 import com.zxx.pojo.PageBean;
 import com.zxx.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 
 /**
  * @author 帅的被人砍
@@ -18,10 +19,10 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpMapper empMapper;
     @Override
-    public PageBean<Emp> getEmps(Integer page,Integer pageSize) {
+    public PageBean<Emp> getEmps(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end) {
         PageBean<Emp> pageBean=new PageBean<>();
         pageBean.setTotal(empMapper.count());
-        pageBean.setRows(empMapper.getEmps((page-1)*pageSize,pageSize));
+        pageBean.setRows(empMapper.getEmps((page-1)*pageSize,pageSize,name,gender,begin,end));
         return pageBean;
     }
 }

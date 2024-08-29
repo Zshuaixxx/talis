@@ -4,6 +4,8 @@ import com.zxx.pojo.Emp;
 import com.zxx.pojo.PageBean;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.time.LocalDate;
+
 /**
  * @author 帅的被人砍
  * @create 2024-08-28 14:01
@@ -12,5 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface EmpService {
 
     /*分页查询员工信息*/
-    PageBean<Emp> getEmps(Integer page, Integer pageSize);
+    PageBean<Emp> getEmps(Integer page, Integer pageSize, String name, Short gender, LocalDate begin,LocalDate end);
 }
