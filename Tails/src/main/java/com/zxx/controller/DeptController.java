@@ -1,5 +1,6 @@
 package com.zxx.controller;
 
+import com.zxx.anno.MyLog;
 import com.zxx.pojo.Dept;
 import com.zxx.pojo.Result;
 import com.zxx.service.DeptService;
@@ -29,6 +30,7 @@ public class DeptController {
     }
 
     /*删除指定部门*/
+    @MyLog
     @DeleteMapping("/depts/{id}")
     public Result deleteDeptById(@PathVariable Integer id){
         boolean res=deptService.deleteDeptById(id);
@@ -41,6 +43,7 @@ public class DeptController {
     }
 
     /*添加部门*/
+    @MyLog
     @PostMapping("/depts")
     public Result addDept(@RequestBody Dept dept){
         boolean res=deptService.addDept(dept);

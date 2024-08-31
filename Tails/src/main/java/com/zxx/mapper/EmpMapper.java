@@ -1,6 +1,7 @@
 package com.zxx.mapper;
 
 import com.zxx.pojo.Emp;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -31,4 +32,7 @@ public interface EmpMapper {
     Emp getEmpById(Integer id);
 
     void updateEmp(Emp emp);
+
+    @Delete("delete from emp where dept_id=#{id}")
+    void deleteEmpsByDeptID(Integer id);
 }
